@@ -1,0 +1,7 @@
+// Photon ラッパーでつ。
+
+
+class HAPhoton 
+{
+      
+};
