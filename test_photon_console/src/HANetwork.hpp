@@ -108,8 +108,12 @@ public:
     };
     
     // events, triggered by certain operations of all players in the same room
-    virtual void joinRoomEventAction(int playerNr, const ExitGames::Common::JVector<int>& playernrs, const ExitGames::LoadBalancing::Player& player) {};
-    virtual void leaveRoomEventAction(int playerNr, bool isInactive) {};
+    virtual void joinRoomEventAction(int playerNr, const ExitGames::Common::JVector<int>& playernrs, const ExitGames::LoadBalancing::Player& player) {
+        EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"Could not connect.");
+    };
+    virtual void leaveRoomEventAction(int playerNr, bool isInactive) {
+        EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"Could not connect.");
+    };
     
     virtual void customEventAction(int playerNr, nByte eventCode, const ExitGames::Common::Object& eventContent) {
         EGLOG(ExitGames::Common::DebugLevel::INFO, L"イベントを受信した.");
@@ -125,12 +129,24 @@ public:
     virtual void createRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& roomProperties, const ExitGames::Common::Hashtable& playerProperties, int errorCode, const ExitGames::Common::JString& errorString) {
         EGLOG(ExitGames::Common::DebugLevel::INFO, L"create room return.");
     };
-    virtual void joinOrCreateRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& roomProperties, const ExitGames::Common::Hashtable& playerProperties, int errorCode, const ExitGames::Common::JString& errorString) {};
-    virtual void joinRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& roomProperties, const ExitGames::Common::Hashtable& playerProperties, int errorCode, const ExitGames::Common::JString& errorString) {};
-    virtual void joinRandomRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& roomProperties, const ExitGames::Common::Hashtable& playerProperties, int errorCode, const ExitGames::Common::JString& errorString) {};
-    virtual void leaveRoomReturn(int errorCode, const ExitGames::Common::JString& errorString) {};
-    virtual void joinLobbyReturn(void) {};
-    virtual void leaveLobbyReturn(void) {};
+    virtual void joinOrCreateRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& roomProperties, const ExitGames::Common::Hashtable& playerProperties, int errorCode, const ExitGames::Common::JString& errorString) {
+        EGLOG(ExitGames::Common::DebugLevel::INFO, L"joinOrCreateRoomReturn");
+    };
+    virtual void joinRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& roomProperties, const ExitGames::Common::Hashtable& playerProperties, int errorCode, const ExitGames::Common::JString& errorString) {
+        EGLOG(ExitGames::Common::DebugLevel::INFO, L"joinRoomReturn");
+    };
+    virtual void joinRandomRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& roomProperties, const ExitGames::Common::Hashtable& playerProperties, int errorCode, const ExitGames::Common::JString& errorString) {
+        EGLOG(ExitGames::Common::DebugLevel::INFO, L"joinRandomRoomReturn");
+    };
+    virtual void leaveRoomReturn(int errorCode, const ExitGames::Common::JString& errorString) {
+        EGLOG(ExitGames::Common::DebugLevel::INFO, L"leaveRoomReturn");
+    };
+    virtual void joinLobbyReturn(void) {
+        EGLOG(ExitGames::Common::DebugLevel::INFO, L"joinLobbyReturn");
+    };
+    virtual void leaveLobbyReturn(void) {
+        EGLOG(ExitGames::Common::DebugLevel::INFO, L"leaveLobbyReturn");
+    };
 };
 
 //TODO:

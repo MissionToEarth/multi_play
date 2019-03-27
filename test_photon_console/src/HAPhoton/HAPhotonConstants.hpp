@@ -1,6 +1,7 @@
 // Photon で使用する定数類でつ。
 #pragma once
 
+#include "Common-cpp/inc/Common.h"
 
 static const ExitGames::Common::JString appID = L"aaaaaaaaaaaa"; // set your app id here
 static const ExitGames::Common::JString appVersion = L"1.0";

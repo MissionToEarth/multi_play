@@ -10,8 +10,14 @@
 #include <sys/time.h>
 
 
+
 namespace d3
 {
+    /**
+     d3::Clock timer;
+     timer.start();
+     timer.end();
+     */
 	class Clock
 	{
     private:
